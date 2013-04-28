@@ -14,8 +14,10 @@ JSON = response.read()
 
 FEED = json.loads(JSON)
 
-print FEED[0]['text']
-print FEED[0]['created_at']
+FEED0= FEED[0]
+
+for key, value in FEED0.iteritems():
+    print key+":", value
 
 
 
