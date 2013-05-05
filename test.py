@@ -28,11 +28,15 @@ JSON = response.read()
 
 FEED = json.loads(JSON)
 
-FEED0= FEED[0]
+for entry in FEED:
+    text = entry['text']
+    created_at = entry['created_at']
+    user_image = entry['user']['profile_background_image_url']
 
-print name
-print '==========='
+    print name
+    print text
+    print created_at
+    print user_image
+    print "==============="
 
-for key, value in FEED0.iteritems():
-    print key+":", value
 
