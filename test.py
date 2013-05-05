@@ -33,10 +33,11 @@ for entry in FEED:
     created_at = entry['created_at']
     user_image = entry['user']['profile_background_image_url']
 
-    print name
-    print text
-    print created_at
-    print user_image
+    print '<html><head><title>'+name+'</title></head>'
+    print '<img src="'+user_image+'">'
+    print '<body><h1>'+text+' </h1>'
+    print '<h3>'+created_at+'</h3>'
+    print '</body></html>'
     print "==============="
 
 
