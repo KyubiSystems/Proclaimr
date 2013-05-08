@@ -11,6 +11,7 @@ import cgitb
 from datetime import datetime
 from pretty_date import pretty_date
 from file_utils import readConfig
+from string import Template
 
 # Enable CGI traceback
 
@@ -61,10 +62,48 @@ user_image = entry['user']['profile_background_image_url']
 
 # print output HTML, should be a template
 
-print '<html><head><title>'+name+'</title></head>'
-print '<img src="'+user_image+'">'
-print '<body><h1>'+text+' </h1>'
-print '<h3>'+name+': '+time_since+'</h3>'
-print '</body></html>'
+t=Template("""<html>
+<head>
+<title>$n</title><head>
+<body>
+<img src="$u">
+<h1>$t</h1>
+<h3>$n: $s</h3>
+</body>
+<script>
+function toggleFullScreen() {
+  if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.cancelFullScreen) {
+      document.cancelFullScreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitCancelFullScreen) {
+      document.webkitCancelFullScreen();
+    }
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.keyCode == 13) {
+    toggleFullScreen();
+  }
+}, false);
+</script>
+</html>""")
+
+print t.substitute(n=name,
+             u=user_image,
+             t=text,
+             s=time_since)
+
 
 
