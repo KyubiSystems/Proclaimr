@@ -65,39 +65,16 @@ user_image = entry['user']['profile_background_image_url']
 t=Template("""<html>
 <head>
 <title>$n</title><head>
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
 <body>
-<img src="$u">
+<div id="centered">
+<img src="$u" align="left" hspace=30>
 <h1>$t</h1>
-<h3>$n: $s</h3>
+<h2>$n: $s</h2>
+</div>
 </body>
-<script>
-function toggleFullScreen() {
-  if (!document.fullscreenElement &&    // alternative standard method
-      !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) {
-      document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) {
-      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-    }
-  } else {
-    if (document.cancelFullScreen) {
-      document.cancelFullScreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitCancelFullScreen) {
-      document.webkitCancelFullScreen();
-    }
-  }
-}
-
-document.addEventListener("keydown", function(e) {
-  if (e.keyCode == 13) {
-    toggleFullScreen();
-  }
-}, false);
-</script>
+<script src="./js/fullscreen.js"></script>
 </html>""")
 
 print t.substitute(n=name,

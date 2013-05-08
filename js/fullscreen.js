@@ -1,18 +1,3 @@
-Watching for the Enter key
-
-https://developer.mozilla.org/en-US/docs/DOM/Using_fullscreen_mode?redirectlocale=en-US&redirectslug=DOM%2FUsing_full-screen_mode
-
-When the page is loaded, this code is run to set up an event listener to watch for the 'enter' key.
-
-document.addEventListener("keydown", function(e) {
-  if (e.keyCode == 13) {
-    toggleFullScreen();
-  }
-}, false);
-Toggling fullscreen mode
-
-This code is called when the user hits the Enter key, as seen above.
-
 function toggleFullScreen() {
   if (!document.fullscreenElement &&    // alternative standard method
       !document.mozFullScreenElement && !document.webkitFullscreenElement) {  // current working methods
@@ -33,3 +18,9 @@ function toggleFullScreen() {
     }
   }
 }
+
+document.addEventListener("keydown", function(e) {
+  if (e.keyCode == 13) {
+    toggleFullScreen();
+  }
+}, false);

@@ -1,0 +1,32 @@
+body {background-image: linear-gradient(bottom, rgb(10,0,148) 40%, rgb(27,100,179) 70%, rgb(36,63,171) 85%);
+background-image: -o-linear-gradient(bottom, rgb(10,0,148) 40%, rgb(27,100,179) 70%, rgb(36,63,171) 85%);
+background-image: -moz-linear-gradient(bottom, rgb(10,0,148) 40%, rgb(27,100,179) 70%, rgb(36,63,171) 85%);
+background-image: -webkit-linear-gradient(bottom, rgb(10,0,148) 40%, rgb(27,100,179) 70%, rgb(36,63,171) 85%);
+background-image: -ms-linear-gradient(bottom, rgb(10,0,148) 40%, rgb(27,100,179) 70%, rgb(36,63,171) 85%);
+
+background-image: -webkit-gradient(
+		  linear,
+		  left bottom,
+		  left top,
+		  color-stop(0.4, rgb(10,0,148)),
+		  color-stop(0.7, rgb(27,100,179)),
+		  color-stop(0.85, rgb(36,63,171))
+);
+}
+
+h1 { color: white; font-family: 'Roboto Slab', serif; text-shadow: 5px 5px 5px #114; }
+h2 { color: #ddf; font-family: 'Roboto Slab', serif; text-shadow: 5px 5px 5px #114; }
+
+div {
+    width: 800px;
+    height: 100px;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+    margin: auto;
+}
+
