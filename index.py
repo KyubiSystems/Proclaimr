@@ -10,20 +10,11 @@ import cgitb
 
 from datetime import datetime
 from pretty_date import pretty_date
+from file_utils import readConfig
 
 # Enable CGI traceback
 
 cgitb.enable()
-
-# Configuration reader
-
-def readConfig(filename):
-    f = open('./config/'+filename,'r')
-    FILE = f.read()
-    f.close()
-
-    JSON = json.loads(FILE)
-    return JSON
 
 # Read config file
 
