@@ -8,6 +8,9 @@ import json
 import cgi
 import cgitb
 
+from datetime import datetime
+from pretty_date import pretty_date
+
 # Enable CGI traceback
 
 cgitb.enable()
@@ -49,16 +52,20 @@ form = cgi.FieldStorage()
 if "page" not in form:
     page = 0
 else:
-    page = form["page"].value
+    page = int(form["page"].value)
 
 # Select page # from feed
 
 entry = FEED[page]
 
 # extract parameters
+# Wed May 08 12:34:39 +0000 2013
 
 text = entry['text']
-created_at = entry['created_at']
+created_at = datetime.strptime(entry['created_at'],'%a %b %d %H:%M:%S %Z %Y')
+
+time_since = pretty_date(created_at)
+
 user_image = entry['user']['profile_background_image_url']
 
 # print output HTML, should be a template
@@ -66,7 +73,7 @@ user_image = entry['user']['profile_background_image_url']
 print '<html><head><title>'+name+'</title></head>'
 print '<img src="'+user_image+'">'
 print '<body><h1>'+text+' </h1>'
-print '<h3>'+created_at+'</h3>'
+print '<h3>'+name+': '+time_since+'</h3>'
 print '</body></html>'
 
 
