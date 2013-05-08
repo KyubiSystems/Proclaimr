@@ -49,7 +49,7 @@ form = cgi.FieldStorage()
 if "page" not in form:
     page = 0
 else:
-    page = form["page"].value
+    page = int(form["page"].value)
 
 # Select page # from feed
 
