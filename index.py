@@ -38,6 +38,8 @@ response = urllib.urlopen(endpoint)
 JSON = response.read()
 FEED = json.loads(JSON)
 
+max = len(FEED)-1
+
 # Get CGI parameter 'page=?' pointing to page number
 
 form = cgi.FieldStorage()
@@ -48,12 +50,20 @@ else:
 
 # Select page # from feed
 
+if page < 0: page = 0
+
+next = page + 1
+
+if page >= max: 
+    page = max
+    next = 0
+
 entry = FEED[page]
 
 # extract parameters
 # Wed May 08 12:34:39 +0000 2013
 
-text = entry['text']
+text = entry['text'].encode('ascii','xmlcharrefreplace')
 created_at = datetime.strptime(entry['created_at'],"%a %b %d %H:%M:%S +0000 %Y")
 
 time_since = pretty_date(created_at)
@@ -67,6 +77,7 @@ t=Template("""<html>
 <title>$n</title><head>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<meta http-equiv="refresh" content="30;URL='./index.py?page=$nx'"/>
 <body>
 <div id="centered">
 <img src="$u" align="left" hspace=30>
@@ -78,9 +89,10 @@ t=Template("""<html>
 </html>""")
 
 print t.substitute(n=name,
-             u=user_image,
-             t=text,
-             s=time_since)
+                   nx = next,
+                   u=user_image,
+                   t=text,
+                   s=time_since)
 
 
 
