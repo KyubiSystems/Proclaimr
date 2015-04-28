@@ -3,11 +3,14 @@ Jinja2==2.7.3
 MarkupSafe==0.23
 Werkzeug==0.9.6
 arrow==0.5.4
-feedreader==0.3.1
+feedparser==5.2.0post1
 itsdangerous==0.24
 lxml==3.3.5
-peewee==2.2.5
+oauthlib==0.7.2
+peewee==2.6.0
 python-dateutil==2.2
+requests==2.6.2
+requests-oauthlib==0.4.2
 six==1.7.3
 tweepy==3.3.0
 wsgiref==0.1.2
