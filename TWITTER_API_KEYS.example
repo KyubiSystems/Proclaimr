@@ -1,0 +1,6 @@
+[twitterapi]
+api_key = API_KEY_GOES_HERE
+api_secret = API_SECRET_GOES_HERE
+access_token = ACCESS_TOKEN_GOES_HERE
+access_token_secret = ACCESS_TOKEN_SECRET_GOES_HERE
+
