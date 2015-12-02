@@ -26,8 +26,14 @@ for tweet in user_timeline:
     print(tweet['text'])
     dt = parser.parse(tweet['created_at'])
     print dt
-
+    a = arrow.get(dt)
+    print a.humanize()
+    
     print(tweet['user']['name'])
     print(tweet['user']['description'])
-    print(tweet['entities']['media'])
+    try:
+        media = tweet['entities']['media']
+    except KeyError:
+        media = ''
+    print media
     print
