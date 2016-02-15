@@ -26,9 +26,10 @@ user_timeline = twitter.get_user_timeline(screen_name='NASA')
 
 @app.route("/")
 def display():
+    r = '<ul>'
     for tweet in user_timeline:
 
-        r = tweet['text']
+        r = r + '<li>' + tweet['text']
         dt = parser.parse(tweet['created_at'])
         r = r + str(dt)
         a = arrow.get(dt)
@@ -42,7 +43,10 @@ def display():
             media = ''
 
         r = r + str(media)
-        return r
+
+    r = r + '</ul>'
+    
+    return r
             
 if __name__ == "__main__":
     app.run(port=5005, debug=True)
