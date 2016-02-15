@@ -1,5 +1,7 @@
 *~
 *.pyc
+#*
+app/#*
 venv.pr
 TWITTER_API_KEYS
 
