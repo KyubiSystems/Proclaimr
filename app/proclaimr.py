@@ -33,7 +33,7 @@ def display():
         dt = parser.parse(tweet['created_at'])
         r = r + str(dt)
         a = arrow.get(dt)
-        r = r + a.humanize()
+        r = r + ' ' + a.humanize()
         
         #print(tweet['user']['name'])
         #print(tweet['user']['description'])
@@ -42,11 +42,13 @@ def display():
         except KeyError:
             media = ''
 
-        r = r + str(media)
+        r = r + '<br><br><font color="blue">' + str(media) + '</font>'
 
     r = r + '</ul>'
     
     return r
             
 if __name__ == "__main__":
+
+    print 'Starting Proclaimr process on localhost:5005...'
     app.run(port=5005, debug=True)
