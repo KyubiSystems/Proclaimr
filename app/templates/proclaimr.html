@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>Proclaimr</title>
+  </head>
+  <body>
+    <ul>
+      {% for post in posts %}
+      <li>{{ post.text }} <img src="{{ post.media }}"><br/><br/></li>
+    </ul>
+  </body>
+</html>

@@ -20,7 +20,8 @@ twitter = Twython(api_key, api_secret, oauth_version=2)
 access_token = twitter.obtain_access_token()
 
 twitter = Twython(api_key, access_token=access_token)
-user_timeline = twitter.get_user_timeline(screen_name='NASA')
+username = 'NASA'
+user_timeline = twitter.get_user_timeline(screen_name=username)
 
 # Test user @NASA
 
@@ -38,11 +39,11 @@ def display():
         #print(tweet['user']['name'])
         #print(tweet['user']['description'])
         try:
-            media = tweet['entities']['media']
+            media = tweet['entities']['media'][0]['media_url_https'] + ':orig'
         except KeyError:
             media = ''
 
-        r = r + '<br><br><font color="blue">' + str(media) + '</font>'
+        r = r + '<br/><img src="' + str(media) + '"><br/><br/>'
 
     r = r + '</ul>'
     
