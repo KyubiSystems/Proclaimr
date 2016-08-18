@@ -20,7 +20,8 @@ twitter = Twython(api_key, api_secret, oauth_version=2)
 access_token = twitter.obtain_access_token()
 
 twitter = Twython(api_key, access_token=access_token)
-user_timeline = twitter.get_user_timeline(screen_name='NASA')
+username = 'NASA'
+user_timeline = twitter.get_user_timeline(screen_name=username)
 
 # Test user @NASA
 
@@ -33,20 +34,22 @@ def display():
         dt = parser.parse(tweet['created_at'])
         r = r + str(dt)
         a = arrow.get(dt)
-        r = r + a.humanize()
+        r = r + ' ' + a.humanize()
         
         #print(tweet['user']['name'])
         #print(tweet['user']['description'])
         try:
-            media = tweet['entities']['media']
+            media = tweet['entities']['media'][0]['media_url_https'] + ':orig'
         except KeyError:
             media = ''
 
-        r = r + str(media)
+        r = r + '<br/><img src="' + str(media) + '"><br/><br/>'
 
     r = r + '</ul>'
     
     return r
             
 if __name__ == "__main__":
+
+    print 'Starting Proclaimr process on localhost:5005...'
     app.run(port=5005, debug=True)
