@@ -1,6 +1,0 @@
-{
-	"name" : "Twitter @BIS_spaceflight",
-	"url" : "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=BIS_spaceflight",
-	"type" : "Twitter",
-	"count" : 20
-}
