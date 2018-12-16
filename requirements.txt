@@ -4,15 +4,12 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+arrow==0.12.1
 astroid==1.6.5            # via pylint
-backports.functools-lru-cache==1.5  # via astroid, pylint
 certifi==2018.10.15       # via requests
 chardet==3.0.4            # via requests
 click==7.0                # via flask
-configparser==3.5.0       # via pylint
-enum34==1.1.6             # via astroid
 flask==1.0.2
-futures==3.2.0            # via isort
 idna==2.7                 # via requests
 isort==4.3.4              # via pylint
 itsdangerous==1.1.0       # via flask
@@ -22,10 +19,10 @@ markupsafe==1.0           # via jinja2
 mccabe==0.6.1             # via pylint
 oauthlib==2.1.0           # via requests-oauthlib
 pylint==1.9.3
+python-dateutil==2.7.5    # via arrow
 requests-oauthlib==1.0.0  # via twython
 requests==2.20.0          # via requests-oauthlib, twython
-singledispatch==3.4.0.3   # via astroid, pylint
-six==1.11.0               # via astroid, pylint, singledispatch
+six==1.11.0               # via astroid, pylint, python-dateutil
 twython==3.7.0
 urllib3==1.24             # via requests
 werkzeug==0.14.1          # via flask

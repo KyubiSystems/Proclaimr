@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-import ConfigParser
+import configparser
 import arrow
 
 from dateutil import parser
@@ -10,7 +10,7 @@ from flask import Flask
 app = Flask(__name__)
 
 # Read API keys from config file
-config = ConfigParser.ConfigParser()
+config = configparser.ConfigParser()
 config.read('../TWITTER_API_KEYS')
 api_key = config.get('twitterapi', 'api_key')
 api_secret = config.get('twitterapi', 'api_secret')
@@ -51,5 +51,5 @@ def display():
             
 if __name__ == "__main__":
 
-    print 'Starting Proclaimr process on localhost:5005...'
+    print('Starting Proclaimr process on localhost:5005...')
     app.run(port=5005, debug=True)
