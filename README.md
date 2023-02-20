@@ -3,6 +3,6 @@ Proclaimr
 
 General-purpose web-based digital signage, using Twitter streaming API, possibly RSS later.
 
-**Currently being extensively rebuilt to support Twitter v1.1 API via OAuth**
+**Aiming to use OAuth 2 (Application Authentication). Maybe this will work in post-Musk API v2, maybe not**
 
 
